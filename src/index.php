@@ -12,6 +12,12 @@ catch(Exception $e) {
 }
 
 $planet = new Planet($mypdo);
-$planet->find(1);
 
-var_dump($planet);
+$planet->find(1);
+//var_dump($planet->data);
+
+$planet->all();
+foreach ($planet->data as $planet) {
+    echo '<h2>'.$planet['name'] . '</h2>';
+    echo $planet['description'] . '</br>';;
+}

@@ -4,11 +4,16 @@ class Planet
 {
     protected MyPDO $db;
 
-    protected $data;
+    public $data;
 
     public function __construct(MyPDO $db)
     {
         $this->db = $db;
+    }
+
+    public function all()
+    {        
+        $this->data = $this->db->run("SELECT * FROM planets")->fetchAll();
     }
 
     public function find($id)
